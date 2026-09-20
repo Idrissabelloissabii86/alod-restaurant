@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./javascript.js" defer></script>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body class="">
+
+    <header id="main-header"
+        class="relative w-full overflow-hidden transition-[height] duration-700 ease-in-out h-[50vh]">
+        <div class="hero w-full h-full absolute top-0 left-0 z-0">
+            <img src="./assets/images/hero2.jpg" alt="Hero image" class="w-full h-full object-cover">
+        </div>
+        <section class="relative z-10 text-white">
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex justify-between items-center px-10 py-0 bg-black/80 max-w-[1440px] mx-auto">
+
+                <img src="./assets/images/logo-orange-removebg-preview.png" class="w-[100px] h-16"></img>
+
+                <div class="flex items-center gap-4">
+
+                    <ul class="flex gap-6">
+                        <li class="p-2"><a href="./index.html" class="uppercase">Acceuil</a></li>
+                        <li class="p-2"><a href="./menu.html" class="uppercase">Menu</a></li>
+                        <li class="p-2"><a href="#about" class="uppercase">À propos</a></li>
+                        <li class="bg-[#a73d0c] p-2 rounded-lg"><a href="#book" class="uppercase">Réservation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="relative flex items-center justify-center p-5 max-w-[1440px] mx-auto lg:hidden">
+                <input type="checkbox" id="menu-btn" class="peer" hidden>
+                <img src="./assets/images/logo-orange-removebg-preview.png"
+                    class="absolute left-6 top-4 w-[80px] h-12"></img>
+
+                <label for="menu-btn"
+                    class="absolute right-6 top-4 lg:hidden cursor-pointer text-2xl transition-transform duration-700 ease-in-out opacity-100 peer-checked:rotate-180 peer-checked:opacity-0">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <label for="menu-btn"
+                    class="absolute right-6 top-4 lg:hidden cursor-pointer text-2xl transition-transform duration-700 opacity-0 ease-in-out peer-checked:rotate-180 peer-checked:opacity-100">
+                    <i class="fa-solid fa-xmark"></i>
+                </label>
+                <div
+                    class="hidden flex-col items-center justify-center gap-2 peer-checked:flex transition-transform duration-700">
+                    <ul class="flex flex-col gap-2 items-center justify-center">
+                        <li class="p-2"><a href="./index.html" class="uppercase">Acceuil</a></li>
+                        <li class="p-2"><a href="./menu.html" class="uppercase">Menu</a></li>
+                        <li class="p-2"><a href="./index.html/#about" class="uppercase">À propos</a></li>
+                        <li class="bg-[#a73d0c] p-2 rounded-lg"><a href="#book" class="uppercase">Réservation</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="w-full h-auto max-w-[1440px] m-auto z-10 items-center justify-center lg:h-[250px] flex">
+
+            <div
+                class="flex flex-col text-white justify-center items-center w-full h-[320px] overflow-hidden lg:h-full relative">
+
+                <a href="#book"
+                    class="inline-block mt-8 px-8 py-3.5 bg-[#a73d0c] hover:bg-[#8f330a] text-white font-bold text-sm md:text-base uppercase tracking-wider rounded-md shadow-lg transition-colors duration-200 text-center font-['Montserrat']">
+                    Commandez en ligne
+                </a>
+
+            </div>
+
+            <!-- </div> -->
+        </section>
+    </header>
+
+    <main>
+        <!-- Menu section -->
+
+        <section class="max-w-[1440px] m-auto h-auto mt-10 md:mt-20" id="menu">
+            <div class="w-[95%] max-w-[1000px] m-auto flex flex-col gap-4">
+                <div class="w-full flex items-center justify-center">
+                    <h2 class="police-dancing text-3xl">Notre Menu</h2>
+                </div>
+
+                <!-- Boutons de filtre mis à jour (remplacent les balises <a>) -->
+                <div class="w-full flex items-center justify-center gap-2 md:gap-4" id="menu-filters">
+                    <button data-category="all" class="py-1 px-6 rounded-full bg-[#060606] text-white">Tous</button>
+                    <button data-category="entrees">Entrées</button>
+                    <button data-category="specialites">Spécialités</button>
+                    <!-- <button data-category="viandes">Viandes</button> -->
+                    <!-- <button data-category="pates">Pates</button> -->
+                    <button data-category="fastfoods">Fastfoods</button>
+                    <!-- <button data-category="accompagnements">Accompagnements</button> -->
+                    <!-- <button data-category="desserts">Desserts</button> -->
+                    <button data-category="boissons">Goumandise</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="menu-cards">
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/salade-saisonniere.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Salade Saisonnière</p>
+                            <p class="w-full text-xm">Un mélange frais et croquant de légumes de saison soigneusement
+                                sélectionnés, assaisonnés d'une vinaigrette légère pour bien démarrer votre repas.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/pomme-a-la-vapeur.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Pommes à la vapeur</p>
+                            <p class="w-full text-xm">De tendres pommes de terre cuites à la vapeur, assaisonnées d'un
+                                brin d'herbes et d'un filet de beurre fondant.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/aloco.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Aloco</p>
+                            <p class="w-full text-xm">De délicieux bananes plantains mûres coupées en dés et frites à la
+                                perfection, dorées et fondantes à souhait.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/avocat-au-thon.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Avocat au thon</p>
+                            <p class="w-full text-xm">Un demi-avocat fondant garni d'une farce savoureuse au thon et à
+                                la mayonnaise relevée d'une touche d'épices doux.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/soupe.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Soupe</p>
+                            <p class="w-full text-xm">Un bouillon chaud et réconfortant mijoté avec des ingrédients
+                                frais et aromatiques pour éveiller vos papilles.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/neem.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Nems</p>
+                            <p class="w-full text-xm">De petits rouleaux dorés et ultra croustillants, farcis d'un
+                                mélange savoureux et servis avec leur sauce acidulée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/legumes-sautes.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Légumes sautés</p>
+                            <p class="w-full text-xm">Une poêlée colorée de légumes de saison croquants, sautés à vif
+                                avec une touche d'huile parfumée et d'herbes fines.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f5.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white h-full justify-between p-4 pt-16 flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Frites</p>
+                            <p class="w-full text-xm">Des batonnets de pommes de terre dorés, croustillants à
+                                l'extérieur et moelleux à l'intérieur, légèrement salés.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/riz-parfume.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white h-full justify-between p-4 pt-16 flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Riz parfumé</p>
+                            <p class="w-full text-xm">Un riz cuit à la perfection, léger et naturellement aromatique,
+                                idéal pour accompagner tous vos plats.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Spécialités -->
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/tacos.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 h-full justify-between flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Tacos Bowl</p>
+                            <p class="w-full text-xm">Une tortilla moelleuse garnie d'une viande savoureuse, de frites
+                                croustillantes et nappée d'une sauce fromagère onctueuse.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/cotelette.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Côtelettes grillées</p>
+                            <p class="w-full text-xm">Des côtelettes tendres et juteuses, marinées aux épices douces et
+                                grillées à la perfection au feu de bois.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>4 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/brochettes-tartillas.png" alt=""
+                                class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Brochettes tortillas</p>
+                            <p class="w-full text-xm">De délicieuses brochettes de viande assaisonnée enroulées dans une
+                                tortilla chaude et garnie de crudités fraîches.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/aloco.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Aloco chargé</p>
+                            <p class="w-full text-xm">Nos bananes plantains frites surmontées d'un mélange généreux de
+                                viande assaisonnée, de condiments et de sauces.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/crousti.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Crousti'Bowl</p>
+                            <p class="w-full text-xm">Des morceaux de poulet tendres enrobés d'une panure dorée hyper
+                                croustillante, servis avec une sauce maison.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/riz-cantonais.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Riz Cantonais</p>
+                            <p class="w-full text-xm">Un riz sauté traditionnel accompagné d'œufs, de petits légumes
+                                croquants et de morceaux de viande savoureux.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f2.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Alod Burger</p>
+                            <p class="w-full text-xm">Le burger signature de la maison, généreusement garni d'un steak
+                                juteux, de fromage fondant et de notre sauce spéciale.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/steak.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Steak</p>
+                            <p class="w-full text-xm">Une pièce de viande choisie, saisie selon votre cuisson et servie
+                                avec un jus de viande savoureux.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>4 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/poulet-mayo.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Poulet Mayo</p>
+                            <p class="w-full text-xm">De tendres morceaux de poulet mariné sautés et enrobés d'une sauce
+                                mayonnaise crémeuse et relevée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>5 000 FCFA / 2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/poisson-braise.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Poisson Braisé</p>
+                            <p class="w-full text-xm">Un poisson entier frais mariné aux condiments locaux et braisé
+                                lentement au charbon de bois.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>5 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/crispy.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Crispy</p>
+                            <p class="w-full text-xm">De tendres aiguillettes de poulet marinées puis panées à la
+                                perfection pour un croustillant irrésistible à chaque bouchée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/pates-creme.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Pâtes à la crème</p>
+                            <p class="w-full text-xm">De délicieuses pâtes enrobées d'une sauce à la crème fraîche
+                                onctueuse, parfumée à l'ail et au fromage.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/spaghetti-polonaise.png" alt=""
+                                class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Spaghetti Bolognaise</p>
+                            <p class="w-full text-xm">Des spaghettis al dente nappés d'une sauce riche, généreuse et
+                                délicieusement assaisonnée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/lasagnes.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Lasagnes</p>
+                            <p class="w-full text-xm">Des couches de pâtes fondantes alternées avec une farce généreuse,
+                                une sauce tomate mijotée et une gratinée au fromage.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Fastfood -->
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f6.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Pizza</p>
+                            <p class="w-full text-xm">Une pâte dorée et croustillante garnie d'une sauce tomate
+                                savoureuse, de fromage fondant et d'ingrédients gourmands.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/corndog.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Corndog</p>
+                            <p class="w-full text-xm">Une saucisse enfilée sur bâtonnet, enrobée d'une pâte à maïs dorée
+                                et croustillante, servie bien chaude.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>$2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f2.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Burger Classique</p>
+                            <p class="w-full text-xm">L'incontournable burger avec son steak haché grillé, ses tranches
+                                de tomate, salade fraîche et fromage fondu.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/shawarma.png" alt="" class="w-52 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Shawarma</p>
+                            <p class="w-full text-xm">De la viande émincée et marinée, grillée à la broche et enveloppée
+                                dans un pain moelleux avec condiments et sauce.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/sandwich.png" alt="" class="w-52 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Sandwich</p>
+                            <p class="w-full text-xm">Un pain frais et croustillant généreusement garni de viande, de
+                                condiments et d'une touche de sauce maison.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Boissons -->
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/boule-de-neige.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Boule de neige</p>
+                            <p class="w-full text-xm">Un dessert aérien et gourmand recouvert d'une fine couche de noix
+                                de coco râpée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/Jus-naturel.png" alt="" class="w-28 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Jus naturels</p>
+                            <p class="w-full text-xm">Un jus de fruits frais pressé maison, sans conservateurs, gorgé de
+                                vitamines et naturellement désaltérant.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/milkshake.png" alt="" class="w-32 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Milkshake</p>
+                            <p class="w-full text-xm">Une boisson onctueuse et gourmande à base de glace mixée et de
+                                lait, surmontée d'une touche crémeuse.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/coca-sprite.png" alt="" class="w-56 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Coca & Sprite</p>
+                            <p class="w-full text-xm">Vos boissons pétillantes préférées (Coca-Cola, Sprite, Fanta…),
+                                servies bien glacées pour une pause fraîcheur ultra désaltérante.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/eau.png" alt="" class="w-32 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Eau minérale</p>
+                            <p class="w-full text-xm">Une eau pure et rafraîchissante, idéale pour accompagner votre
+                                repas en toute légèreté.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/boissons-chaudes.png" alt="" class="w-52 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Boissons Chaudes</p>
+                            <p class="w-full text-xm">Une boisson réconfortante préparée sur demande pour une pause
+                                douceur bien méritée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/cookie.png" alt="" class="w-32 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Cookies</p>
+                            <p class="w-full text-xm">Un biscuit fait maison, croustillant sur les bords et moelleux au
+                                cœur, rempli de pépites de chocolat.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/glace.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Glace</p>
+                            <p class="w-full text-xm">Une pause rafraîchissante avec nos boules de glace crémeuses aux
+                                parfums gourmands et fruités.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/crepe-farcie.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Crêpe farcie</p>
+                            <p class="w-full text-xm">Une crêpe fine et moelleuse, généreusement garnie d'une farce
+                                sucrée ou d'une pâte à tartiner gourmande.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/chips-crepe.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Chips de Crêpe</p>
+                            <p class="w-full text-xm">Des morceaux de crêpe dorés et croustillants à grignoter,
+                                saupoudrés d'une touche de sucre ou de chocolat.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/gateau-tiramisu.png" alt="" class="w-32 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Gâteau tiramisu</p>
+                            <p class="w-full text-xm">L'alliance parfaite entre le moelleux des biscuits imbibés et
+                                l'onctuosité d'une crème légère au mascarpone.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/churros.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Churros</p>
+                            <p class="w-full text-xm">Des bâtonnets de pâte friture espagnole, dorés, croustillants et
+                                saupoudrés de sucre, servis chauds.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex items-center justify-center p-4">
+                    <button onclick="window.location.href='./menu.html'"
+                        class="py-2 px-4 bg-[#a73d0c] text-white rounded-[100px]">Commandez</button>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#060606]">
+        <section class="max-w-[1440px] m-auto h-auto">
+            <div class="w-[95%] max-w-[1000px] m-auto p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-white gap-10 md:gap-5">
+                    <div class="flex justify-center md:justify-start">
+                        <img src="./assets/images/logo-orange.jpg" class="w-52 rounded-lg" alt="">
+                    </div>
+                    <div class="flex flex-col h-full items-center md:items-start gap-4">
+                        <div>
+                            <p class="text-4xl police-dancing">Contactez-nous</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center md:items-start gap-2 text-gray-300 h-full justify-between">
+                            <div class="flex gap-3 hover:text-[#a73d0c] items-center cursor-pointer"><i
+                                    class="fa-solid fa-location-dot"></i>
+                                <p>Niamey, Niger</p>
+                            </div>
+                            <div class="flex gap-2 hover:text-[#a73d0c] items-center cursor-pointer"><i
+                                    class="fa-solid fa-phone"></i>
+                                <p>+227 80298022</p>
+                            </div>
+                            <div class="flex hover:text-[#a73d0c] items-center gap-2 cursor-pointer"><i
+                                    class="fa-solid fa-envelope"></i>
+                                <p>aichaclodinnz65@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col h-full items-center md:items-start gap-4 justify-between">
+                        <div>
+                            <p class="police-dancing text-4xl">Réseaux sociaux</p>
+                        </div>
+
+
+                        <div class="flex flex-col gap-4">
+                            <a href="#" class="flex items-center gap-3">
+                                <div
+                                    class="flex items-center justify-center text-slate-900 w-10 h-10 bg-white rounded-full hover:text-[#a73d0c]">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <p>Facebook</p>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex items-center justify-center text-slate-900 w-10 h-10 bg-white rounded-full hover:text-[#a73d0c]">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </div>
+                                <p>TikTok</p>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex items-center justify-center text-slate-900 w-10 h-10 bg-white rounded-full hover:text-[#a73d0c]">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <p>WathsApp</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="flex flex-col h-full items-center md:items-start gap-4 justify-between">
+                        <div>
+                            <p class="text-4xl police-dancing">Horaires</p>
+                        </div>
+
+                        <div class="text-gray-300">
+                            <p class="">Lundi-Samedi</p>
+                        </div>
+                        <div class="text-gray-300">
+                            <p class="">08:00 AM - 00:00 PM</p>
+                        </div>
+                        <div class="text-gray-300">
+                            <p class="">Dimanche</p>
+                        </div>
+                        <div class="text-gray-300">
+                            <p class="">18:00 PM - 00:00 PM</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="flex flex-col items-center justify-center text-white mt-10">
+                    <p>&copy; 2026 Alod restaurant, Tous droits reservés</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll("#menu-filters button");
+        const cards = document.querySelectorAll("#menu-cards > div");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const selectedCategory = this.getAttribute("data-category");
+
+                // Met à jour la classe active sur le bouton cliqué
+                filterButtons.forEach(btn => btn.className = "");
+                this.className = "py-1 px-6 rounded-full bg-slate-900 text-white";
+
+                // Affiche/Masque les cartes selon la catégorie sélectionnée
+                cards.forEach(card => {
+                    const cardCategory = card.getAttribute("data-category");
+
+                    if (selectedCategory === "all" || cardCategory === selectedCategory) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+</html>

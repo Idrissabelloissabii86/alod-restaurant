@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fast Food</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="./style.css">
+    <script src="./javascript.js" defer></script>
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="shortcut icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+</head>
+
+<body class="">
+
+    <header id="main-header"
+        class="relative w-full overflow-hidden lg:h-screen transition-[height] duration-700 ease-in-out h-[50vh]">
+        <div class="hero w-full h-full absolute top-0 left-0 z-0">
+            <img src="./assets/images/hero2.jpg" alt="Hero image" class="w-full h-full object-cover">
+        </div>
+        <section class="relative z-10 text-white">
+            <!-- Desktop menu -->
+            <div class="hidden lg:flex justify-between items-center px-10 py-0 bg-black/80 max-w-[1440px] mx-auto">
+
+                <img src="./assets/images/logo-orange-removebg-preview.png" class="w-[100px] h-16"></img>
+
+                <div class="flex items-center gap-4">
+
+                    <ul class="flex gap-6">
+                        <li class="p-2"><a href="#" class="uppercase">Acceuil</a></li>
+                        <li class="p-2"><a href="./menu.html" class="uppercase">Menu</a></li>
+                        <li class="p-2"><a href="#about" class="uppercase">À propos</a></li>
+                        <li class="bg-[#a73d0c] p-2 rounded-lg"><a href="#book" class="uppercase">Réservation</a></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Mobile menu -->
+            <div class="relative flex items-center justify-center p-5 max-w-[1440px] mx-auto lg:hidden">
+                <input type="checkbox" id="menu-btn" class="peer" hidden>
+                <img src="./assets/images/logo-orange-removebg-preview.png"
+                    class="absolute left-6 top-4 w-[80px] h-12"></img>
+
+                <label for="menu-btn"
+                    class="absolute right-6 top-4 lg:hidden cursor-pointer text-2xl transition-transform duration-700 ease-in-out opacity-100 peer-checked:rotate-180 peer-checked:opacity-0">
+                    <i class="fa-solid fa-bars"></i>
+                </label>
+                <label for="menu-btn"
+                    class="absolute right-6 top-4 lg:hidden cursor-pointer text-2xl transition-transform duration-700 opacity-0 ease-in-out peer-checked:rotate-180 peer-checked:opacity-100">
+                    <i class="fa-solid fa-xmark"></i>
+                </label>
+                <div
+                    class="hidden flex-col items-center justify-center gap-2 peer-checked:flex transition-transform duration-700">
+                    <ul class="flex flex-col gap-2 items-center justify-center">
+                        <li class="p-2"><a href="#" class="uppercase">Acceuil</a></li>
+                        <li class="p-2"><a href="./menu.html" class="uppercase">Menu</a></li>
+                        <li class="p-2"><a href="#about" class="uppercase">À propos</a></li>
+                        <li class="bg-[#a73d0c] p-2 rounded-lg"><a href="#book" class="uppercase">Réservation</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <section class="w-full h-auto max-w-[1440px] m-auto z-10 lg:h-screen flex">
+
+            <div
+                class="flex flex-col text-white justify-center items-center w-full h-[320px] overflow-hidden lg:h-full relative">
+                <h1 id="hero-title"
+                    class="text-center w-auto md:w-[600px] text-xl md:text-3xl lg:text-4xl font-bold uppercase tracking-wider text-white font-['Montserrat'] leading-tight drop-shadow-md">
+                </h1>
+                <p class="text-base text-center md:text-xl font-light text-gray-100 font-['Inter'] mt-4 drop-shadow">
+                    Cuisine Moderne
+                    et Traditionnelle. Une Expérience Culinaire Unique.</p>
+                <a href="#book"
+                    class="inline-block mt-8 px-8 py-3.5 bg-[#a73d0c] hover:bg-[#8f330a] text-white font-bold text-sm md:text-base uppercase tracking-wider rounded-md shadow-lg transition-colors duration-200 text-center font-['Montserrat']">
+                    Commandez en ligne
+                </a>
+
+            </div>
+
+            <!-- </div> -->
+        </section>
+    </header>
+
+    <main>
+        <!-- contenu principal -->
+        <!-- Section first cards -->
+        <section class="max-w-[1440px m-auto h-auto] mt-3 md:mt-4">
+            <div class="w-[95%] max-w-[1000px] m-auto grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div class="p-4 flex items-center gap-4 bg-[#060606] rounded-lg group">
+                    <div class="w-32 h-32 rounded-full border-4 border-[#a73d0c] overflow-hidden">
+                        <img src="./assets/images/o1.jpg" alt=""
+                            class="w-full h-full object-cover object-center group-hover:scale-110 group-hover:transition-all">
+                    </div>
+                    <div class="text-white flex flex-col gap-2 justify-center">
+                        <p class="police-dancing text-xl">Weekend Burger</p>
+                        <p class="police-dancing text-sm"><span class="text-3xl font-semibold">20%</span> off</p>
+                        <div>
+                            <button
+                                class="bg-[#a73d0c] py-1 px-5 text-xm flex items-center text-center gap-1 font-semibold rounded-3xl">
+                                <p>Commandez</p>
+                                <i class="bi bi-cart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="p-4 flex items-center gap-4 bg-[#060606] rounded-lg group">
+                    <div class="w-32 h-32 rounded-full border-4 border-[#a73d0c] overflow-hidden">
+                        <img src="./assets/images/o2.jpg" alt=""
+                            class="w-full h-full object-cover object-center group-hover:scale-110">
+                    </div>
+                    <div class="text-white flex flex-col gap-2 justify-center">
+                        <p class="police-dancing text-xl">Promo Pizza</p>
+                        <p class="police-dancing text-sm"><span class="text-3xl font-semibold">15%</span> off</p>
+                        <div>
+                            <button
+                                class="bg-[#a73d0c] py-1 px-5 text-xm flex items-center text-center gap-1 font-semibold rounded-3xl">
+                                <p>Commandez</p>
+                                <i class="bi bi-cart-fill"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Menu section -->
+
+        <section class="max-w-[1440px] m-auto h-auto mt-10 md:mt-20" id="menu">
+            <div class="w-[95%] max-w-[1000px] m-auto flex flex-col gap-4">
+                <div class="w-full flex items-center justify-center">
+                    <h2 class="police-dancing text-3xl">Notre Menu</h2>
+                </div>
+
+                <!-- Boutons de filtre mis à jour (remplacent les balises <a>) -->
+                <div class="w-full flex items-center justify-center gap-2 md:gap-4" id="menu-filters">
+                    <button data-category="all" class="py-1 px-6 rounded-full bg-[#060606] text-white">All</button>
+                    <button data-category="entrees">Entrées</button>
+                    <button data-category="specialites">Spécialités</button>
+                    <!-- <button data-category="viandes">Viandes</button> -->
+                    <!-- <button data-category="pates">Pates</button> -->
+                    <button data-category="fastfoods">Fastfoods</button>
+                    <!-- <button data-category="accompagnements">Accompagnements</button> -->
+                    <!-- <button data-category="desserts">Desserts</button> -->
+                    <button data-category="boissons">Goumandise</button>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" id="menu-cards">
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="bg-gray-200 h-52 rounded-bl-[50px] flex items-center justify-center w-full p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/salade-saisonniere.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Salade Saisonnière</p>
+                            <p class="w-full text-xm">Un mélange frais et croquant de légumes de saison soigneusement
+                                sélectionnés, assaisonnés d'une vinaigrette légère pour bien démarrer votre repas.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f5.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white h-full justify-between p-4 pt-16 flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Frites</p>
+                            <p class="w-full text-xm">Des batonnets de pommes de terre dorés, croustillants à
+                                l'extérieur et moelleux à l'intérieur, légèrement salés.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="entrees">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/riz-parfume.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white h-full justify-between p-4 pt-16 flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Riz parfumé</p>
+                            <p class="w-full text-xm">Un riz cuit à la perfection, léger et naturellement aromatique,
+                                idéal pour accompagner tous vos plats.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>1 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/tacos.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 h-full justify-between flex flex-col gap-4">
+                            <p class="text-xl font-semibold">Tacos Bowl</p>
+                            <p class="w-full text-xm">Une tortilla moelleuse garnie d'une viande savoureuse, de frites
+                                croustillantes et nappée d'une sauce fromagère onctueuse.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/cotelette.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Côtelettes grillées</p>
+                            <p class="w-full text-xm">Des côtelettes tendres et juteuses, marinées aux épices douces et
+                                grillées à la perfection au feu de bois.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>4 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="specialites">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/spaghetti-polonaise.png" alt=""
+                                class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Spaghetti polonaise</p>
+                            <p class="w-full text-xm">Des spaghettis al dente nappés d'une sauce riche, généreuse et
+                                délicieusement assaisonnée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f6.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Pizza</p>
+                            <p class="w-full text-xm">Une pâte dorée et croustillante garnie d'une sauce tomate
+                                savoureuse, de fromage fondant et d'ingrédients gourmands.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>3 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/corndog.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Corndog</p>
+                            <p class="w-full text-xm">Une saucisse enfilée sur bâtonnet, enrobée d'une pâte à maïs dorée
+                                et croustillante, servie bien chaude.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>$2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="fastfoods">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/f2.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Burger Classique</p>
+                            <p class="w-full text-xm">L'incontournable burger avec son steak haché grillé, ses tranches
+                                de tomate, salade fraîche et fromage fondu.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/boule-de-neige.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Boule de neige</p>
+                            <p class="w-full text-xm">Un dessert aérien et gourmand recouvert d'une fine couche de noix
+                                de coco râpée.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 500 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/Jus-naturel.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Jus naturels</p>
+                            <p class="w-full text-xm">Un jus de fruits frais pressé maison, sans conservateurs, gorgé de
+                                vitamines et naturellement désaltérant.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="flex flex-col relative rounded-lg overflow-hidden group" data-category="boissons">
+                        <div
+                            class="w-full h-52 bg-gray-200 rounded-bl-[50px] flex items-center justify-center p-10 relative z-10 -mb-12">
+                            <img src="./assets/images/milkshake.png" alt="" class="w-44 group-hover:scale-110">
+                        </div>
+
+                        <div class="bg-[#060606] text-white p-4 pt-16 flex flex-col h-full justify-between gap-4">
+                            <p class="text-xl font-semibold">Milkshake</p>
+                            <p class="w-full text-xm">Une boisson onctueuse et gourmande à base de glace mixée et de
+                                lait, surmontée d'une touche crémeuse.</p>
+                            <div class="flex justify-between mt-4 items-center">
+                                <p>2 000 FCFA</p>
+                                <div
+                                    class="text-white w-8 h-8 bg-[#a73d0c] flex items-center justify-center rounded-full">
+                                    <i class="bi bi-cart-fill"></i>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex items-center justify-center p-4">
+                    <button onclick="window.location.href='./menu.html'"
+                        class="py-2 px-4 bg-[#a73d0c] text-white rounded-[100px]">Voir tout</button>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section About -->
+
+        <section class="max-w-[1440px m-auto h-auto] mt-10 md:mt-20 bg-[#060606]" id="about">
+            <div
+                class="w-[95%] max-w-[1000px] m-auto flex gap-10 p-8 flex-col-reverse lg:flex-row items-center justify-center text-white">
+                <img src="./assets/images/about-img.png" alt="" class="w-80">
+                <div class="flex flex-col items-center lg:items-start">
+                    <h2 class="police-dancing text-4xl font-bold mb-5">Qui sommes-nous ?</h2>
+                    <p class="text-center lg:text-left max-w-[100%]">Installé à Niamey, notre restaurant est le
+                        rendez-vous des amoureux de la bonne cuisine. Notre mission est simple : sublimer des
+                        ingrédients de qualité pour vous servir des repas faits maison, riches en saveurs et préparés
+                        dans le respect des plus hautes exigences d'hygiène et de qualité. Venez vivre une véritable
+                        parenthèse gourmande !</p>
+                    <div class="flex items-center p-4">
+                        <button onclick="window.location.href='./menu.html'"
+                            class="py-2 px-4 bg-[#a73d0c] text-white rounded-[100px]">Voir Plus</button>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Section contact -->
+
+        <section class="max-w-[1440px m-auto h-auto] mt-10 md:mt-20" id="book">
+            <div class="w-[95%] max-w-[1000px] m-auto p-8">
+                <h2 class="police-dancing text-5xl mb-10">Contacter-Nous</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                    <div>
+                        <form action="" class="flex flex-col gap-4">
+                            <input type="text" placeholder="Nom et Prénom" class="w-full border-2 p-2 rounded-md">
+                            <input type="tel" placeholder="Téléphone" class="w-full border-2 p-2 rounded-md">
+                            <input type="email" placeholder="Email" class="w-full border-2 p-2 rounded-md">
+                            <input type="text" placeholder="Message" class="w-full border-2 p-2 rounded-md h-24">
+
+                            <div class="flex justify-center items-center p-4">
+                                <button class="py-2 px-4 bg-[#a73d0c] text-white rounded-[100px]">Envoyez</button>
+                            </div>
+                        </form>
+                    </div>
+                    <div>
+                        <iframe
+                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1477.032023989554!2d2.0956304320327748!3d13.587286909983234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2sne!4v1789902748728!5m2!1sfr!2sne"
+                            style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            class="w-full h-[350px] rounded-md"></iframe>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Customers comments section -->
+
+        <section class="max-w-[1440px] m-auto h-auto mt-10 md:mt-20">
+            <div class="w-[95%] max-w-[1000px] m-auto p-8">
+                <div class="flex w-full justify-center mb-10">
+                    <h2 class="police-dancing text-5xl">Que dise nos client(e)s ?</h2>
+                </div>
+
+                <div class="relative overflow-hidden">
+                    <div id="testiTrack" class="flex gap-4 transition-transform duration-500 ease-in-out">
+
+                        <div class="testi-card flex-none w-full md:w-[calc(50%-8px)] flex flex-col gap-8">
+                            <div class="bg-[#060606] text-white p-8 flex flex-col gap-4 rounded-lg">
+                                <p class="text-xm text-gray-300">J'ai réservé une table facilement en envoyant un petit
+                                    message sur WhatsApp. Dès notre arrivée, l'accueil a été très chaleureux et l'équipe
+                                    s'est montrée aux petits soins tout au long du repas. L'ambiance est conviviale et
+                                    les plats sont arrivés chauds et bien servis. Nous reviendrons très vite !</p>
+                                <p class="text-xl font-bold">Oumarou A.</p>
+                                <p class="text-sm text-gray-300">Client</p>
+                            </div>
+                            <div
+                                class="w-28 h-28 bg-[#a73d0c] rotate-45 border-2 rounded-b-full rounded-tr-full flex items-center justify-center ml-10">
+                                <div class="bg-white rounded-full w-24 h-24 overflow-hidden border-2 -rotate-45">
+                                    <img src="./assets/images/client2.jpg" alt="" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testi-card flex-none w-full md:w-[calc(50%-8px)] flex flex-col gap-8">
+                            <div class="bg-[#060606] text-white p-8 flex flex-col gap-4 rounded-lg">
+                                <p class="text-xm text-gray-300">Nous sommes venus dîner en famille et tout était
+                                    absolument délicieux, du plat principal au dessert. Les produits sont frais, bien
+                                    assaisonnés et très bien présentés. On sent la passion du chef dans chaque assiette.
+                                    C'est sans hésitation l'une des meilleures adresses de la ville !</p>
+                                <p class="text-xl font-bold">Mariama S.</p>
+                                <p class="text-sm text-gray-300">Cliente</p>
+                            </div>
+                            <div
+                                class="w-28 h-28 bg-[#a73d0c] rotate-45 border-2 rounded-b-full rounded-tr-full flex items-center justify-center ml-10">
+                                <div class="bg-white rounded-full w-24 h-24 overflow-hidden border-2 -rotate-45">
+                                    <img src="./assets/images/client1.jpg" alt="" class="w-full h-full object-cover">
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="flex justify-center gap-3 mt-10">
+                    <button id="testiPrevBtn"
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-[#a73d0c] hover:bg-[#8f330a] text-white transition-all shadow-md active:scale-90">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                        </svg>
+                    </button>
+                    <button id="testiNextBtn"
+                        class="w-12 h-12 flex items-center justify-center rounded-full bg-[#a73d0c] hover:bg-[#8f330a] text-white transition-all shadow-md active:scale-90">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3"
+                            stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#060606]">
+        <section class="max-w-[1440px] m-auto h-auto">
+            <div class="w-[95%] max-w-[1000px] m-auto p-8">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 text-white gap-10 md:gap-5">
+                    <div class="flex justify-center md:justify-start">
+                        <img src="./assets/images/logo-orange.jpg" class="w-52 rounded-lg" alt="">
+                    </div>
+                    <div class="flex flex-col h-full items-center md:items-start gap-4">
+                        <div>
+                            <p class="text-4xl police-dancing">Contactez-nous</p>
+                        </div>
+                        <div
+                            class="flex flex-col items-center md:items-start gap-2 text-gray-300 h-full justify-between">
+                            <div class="flex gap-3 hover:text-[#a73d0c] items-center cursor-pointer"><i
+                                    class="fa-solid fa-location-dot"></i>
+                                <p>Niamey, Niger</p>
+                            </div>
+                            <div class="flex gap-2 hover:text-[#a73d0c] items-center cursor-pointer"><i
+                                    class="fa-solid fa-phone"></i>
+                                <p>+227 80298022</p>
+                            </div>
+                            <div class="flex hover:text-[#a73d0c] items-center gap-2 cursor-pointer"><i
+                                    class="fa-solid fa-envelope"></i>
+                                <p>aichaclodinnz65@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex flex-col h-full items-center md:items-start gap-4 justify-between">
+                        <div>
+                            <p class="police-dancing text-4xl">Réseaux sociaux</p>
+                        </div>
+
+
+                        <div class="flex flex-col gap-4">
+                            <a href="#" class="flex items-center gap-3">
+                                <div
+                                    class="flex items-center justify-center text-slate-900 w-10 h-10 bg-white rounded-full hover:text-[#a73d0c]">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </div>
+                                <p>Facebook</p>
+                            </a>
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex items-center justify-center text-slate-900 w-10 h-10 bg-white rounded-full hover:text-[#a73d0c]">
+                                    <i class="fa-brands fa-tiktok"></i>
+                                </div>
+                                <p>TikTok</p>
+                            </div>
+
+                            <div class="flex items-center gap-3">
+                                <div
+                                    class="flex items-center justify-center text-slate-900 w-10 h-10 bg-white rounded-full hover:text-[#a73d0c]">
+                                    <i class="fa-brands fa-whatsapp"></i>
+                                </div>
+                                <p>WathsApp</p>
+                            </div>
+
+
+                        </div>
+                    </div>
+                    <div class="flex flex-col h-full items-center md:items-start gap-4 justify-between">
+                        <div>
+                            <p class="text-4xl police-dancing">Horaires</p>
+                        </div>
+
+                        <div class="text-gray-300">
+                            <p class="">Lundi-Samedi</p>
+                        </div>
+                        <div class="text-gray-300">
+                            <p class="">08:00 AM - 00:00 PM</p>
+                        </div>
+                        <div class="text-gray-300">
+                            <p class="">Dimanche</p>
+                        </div>
+                        <div class="text-gray-300">
+                            <p class="">18:00 PM - 00:00 PM</p>
+                        </div>
+
+                    </div>
+
+                </div>
+                <div class="flex flex-col items-center justify-center text-white mt-10">
+                    <p>&copy; 2026 Alod restaurant, Tous droits reservés</p>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+</body>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const filterButtons = document.querySelectorAll("#menu-filters button");
+        const cards = document.querySelectorAll("#menu-cards > div");
+
+        filterButtons.forEach(button => {
+            button.addEventListener("click", function () {
+                const selectedCategory = this.getAttribute("data-category");
+
+                // Met à jour la classe active sur le bouton cliqué
+                filterButtons.forEach(btn => btn.className = "");
+                this.className = "py-1 px-6 rounded-full bg-slate-900 text-white";
+
+                // Affiche/Masque les cartes selon la catégorie sélectionnée
+                cards.forEach(card => {
+                    const cardCategory = card.getAttribute("data-category");
+
+                    if (selectedCategory === "all" || cardCategory === selectedCategory) {
+                        card.style.display = "flex";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+            });
+        });
+    });
+</script>
+
+</html>
