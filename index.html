@@ -428,8 +428,6 @@
             <div class="w-[95%] max-w-[1000px] m-auto p-8">
                 <h2 class="police-dancing text-5xl mb-10">Contacter-Nous</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    <!-- Remplacez votre bloc <div><form>...</form></div> actuel par tout ce fichier.
-     N'oubliez pas de remplacer VOTRE_CLE_WEB3FORMS (clé reçue par e-mail sur web3forms.com). -->
 
                     <div>
                         <form id="contact-form" class="flex flex-col gap-4" novalidate>
@@ -447,6 +445,9 @@
                                 autocomplete="email" class="w-full border-2 p-2 rounded-md">
                             <textarea name="message" placeholder="Message" required aria-label="Message"
                                 class="w-full border-2 p-2 rounded-md h-24"></textarea>
+
+                            <div class="h-captcha" data-captcha="true"></div>
+                            <script src="https://web3forms.com/client/script.js" async defer></script>
 
                             <div class="flex flex-col justify-center items-center p-4 gap-3">
                                 <button type="submit" id="cf-bouton"
