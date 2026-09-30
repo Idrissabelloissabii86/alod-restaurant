@@ -94,12 +94,12 @@
         <section class="max-w-[1440px m-auto h-auto] mt-3 md:mt-4">
             <div class="w-[95%] max-w-[1000px] m-auto grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div class="p-4 flex items-center gap-4 bg-[#060606] rounded-lg group">
-                    <div class="w-32 h-32 rounded-full border-4 border-[#a73d0c] overflow-hidden">
-                        <img src="./assets/images/o1.jpg" alt=""
+                    <div class="w-32 h-32 rounded-full bg-white border-4 border-[#a73d0c] overflow-hidden">
+                        <img src="./assets/images/grillade.jfif" alt=""
                             class="w-full h-full object-cover object-center group-hover:scale-110 group-hover:transition-all">
                     </div>
                     <div class="text-white flex flex-col gap-2 justify-center">
-                        <p class="police-dancing text-xl">Weekend Burger</p>
+                        <p class="police-dancing text-xl">Weekend Grillades</p>
                         <p class="police-dancing text-sm"><span class="text-3xl font-semibold">20%</span> off</p>
                         <div>
                             <button
@@ -145,11 +145,7 @@
                     <button data-category="all" class="py-1 px-6 rounded-full bg-[#060606] text-white">All</button>
                     <button data-category="entrees">Entrées</button>
                     <button data-category="specialites">Spécialités</button>
-                    <!-- <button data-category="viandes">Viandes</button> -->
-                    <!-- <button data-category="pates">Pates</button> -->
                     <button data-category="fastfoods">Fastfoods</button>
-                    <!-- <button data-category="accompagnements">Accompagnements</button> -->
-                    <!-- <button data-category="desserts">Desserts</button> -->
                     <button data-category="boissons">Goumandise</button>
                 </div>
 
@@ -432,18 +428,76 @@
             <div class="w-[95%] max-w-[1000px] m-auto p-8">
                 <h2 class="police-dancing text-5xl mb-10">Contacter-Nous</h2>
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                    <div>
-                        <form action="" class="flex flex-col gap-4">
-                            <input type="text" placeholder="Nom et Prénom" class="w-full border-2 p-2 rounded-md">
-                            <input type="tel" placeholder="Téléphone" class="w-full border-2 p-2 rounded-md">
-                            <input type="email" placeholder="Email" class="w-full border-2 p-2 rounded-md">
-                            <input type="text" placeholder="Message" class="w-full border-2 p-2 rounded-md h-24">
+                    <!-- Remplacez votre bloc <div><form>...</form></div> actuel par tout ce fichier.
+     N'oubliez pas de remplacer VOTRE_CLE_WEB3FORMS (clé reçue par e-mail sur web3forms.com). -->
 
-                            <div class="flex justify-center items-center p-4">
-                                <button class="py-2 px-4 bg-[#a73d0c] text-white rounded-[100px]">Envoyez</button>
+                    <div>
+                        <form id="contact-form" class="flex flex-col gap-4" novalidate>
+                            <input type="hidden" name="access_key" value="a7185784-7eca-40b4-97f1-4c88bec2f43e">
+                            <input type="hidden" name="subject" value="Nouveau message depuis mon site">
+                            <input type="hidden" name="from_name" value="Site web">
+                            <!-- Piège anti-spam invisible -->
+                            <input type="checkbox" name="botcheck" class="hidden" tabindex="-1" autocomplete="off">
+
+                            <input type="text" name="name" placeholder="Nom et Prénom" required
+                                aria-label="Nom et prénom" autocomplete="name" class="w-full border-2 p-2 rounded-md">
+                            <input type="tel" name="telephone" placeholder="Téléphone" aria-label="Téléphone"
+                                autocomplete="tel" class="w-full border-2 p-2 rounded-md">
+                            <input type="email" name="email" placeholder="Email" required aria-label="Adresse e-mail"
+                                autocomplete="email" class="w-full border-2 p-2 rounded-md">
+                            <textarea name="message" placeholder="Message" required aria-label="Message"
+                                class="w-full border-2 p-2 rounded-md h-24"></textarea>
+
+                            <div class="flex flex-col justify-center items-center p-4 gap-3">
+                                <button type="submit" id="cf-bouton"
+                                    class="py-2 px-4 bg-[#a73d0c] text-white rounded-[100px] disabled:opacity-60">Envoyez</button>
+                                <p id="cf-statut" role="status" aria-live="polite" class="text-center"></p>
                             </div>
                         </form>
                     </div>
+
+                    <script>
+                        (function () {
+                            var form = document.getElementById("contact-form");
+                            var bouton = document.getElementById("cf-bouton");
+                            var statut = document.getElementById("cf-statut");
+
+                            form.addEventListener("submit", function (e) {
+                                e.preventDefault();
+                                statut.textContent = "";
+
+                                if (!form.checkValidity()) {
+                                    statut.textContent = "Renseignez votre nom, un e-mail valide et votre message.";
+                                    return;
+                                }
+
+                                bouton.disabled = true;
+                                bouton.textContent = "Envoi en cours...";
+
+                                fetch("https://api.web3forms.com/submit", {
+                                    method: "POST",
+                                    headers: { "Content-Type": "application/json", "Accept": "application/json" },
+                                    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                                })
+                                    .then(function (r) { return r.json(); })
+                                    .then(function (data) {
+                                        if (data.success) {
+                                            statut.textContent = "Message envoyé. Nous vous répondrons dès que possible.";
+                                            form.reset();
+                                        } else {
+                                            statut.textContent = "L'envoi a échoué. Réessayez dans un instant.";
+                                        }
+                                    })
+                                    .catch(function () {
+                                        statut.textContent = "Connexion impossible. Vérifiez votre réseau et réessayez.";
+                                    })
+                                    .finally(function () {
+                                        bouton.disabled = false;
+                                        bouton.textContent = "Envoyez";
+                                    });
+                            });
+                        })();
+                    </script>
                     <div>
                         <iframe
                             src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d1477.032023989554!2d2.0956304320327748!3d13.587286909983234!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sfr!2sne!4v1789902748728!5m2!1sfr!2sne"
